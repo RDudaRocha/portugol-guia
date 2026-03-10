@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios | Portugol Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../estilos.css">
+    <link rel="shortcut icon" href="../icon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #38bdf8;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            background: #1e293b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #38bdf8;
+            color: #020617;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0ea5e9;
+        }
+
+        #feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .correct {
+            background: #16a34a;
+            color: white;
+        }
+
+        .wrong {
+            background: #dc2626;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <div class="sidebar" id="sidebar">
+
+        <h2><a href="../index.html">Portugol</a></h2>
+
+        <ul>
+            <li><a href="introducao.html">Introdução</a></li>
+            <li><a href="estrutura-programa.html">Estrutura do Programa</a></li>
+            <li><a href="variaveis.html">Variáveis</a></li>
+            <li><a href="entrada-saida.html">Entrada e Saída</a></li>
+            <li><a href="condicoes.html">Condicionais</a></li>
+            <li><a href="repeticao.html">Repetição</a></li>
+            <li><a href="vetores.html">Vetores</a></li>
+            <li><a href="matrizes.html">Matrizes</a></li>
+            <li><a href="funcoes.html">Funções</a></li>
+            <li><a href="desafios.html">Desafios</a></li>
+            <li><a href="atalhos.html">Atalhos</a></li>
+            <li><a href="lista-exercicio.html">Lista de Exercicios</a></li>
+        </ul>
+
+    </div>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="main">
+        <h1>Desafios de Portugol</h1>
+        <p>Resolva o desafio abaixo escrevendo o código em Portugol. Clique em "Enviar" para verificar sua resposta.</p>
+
+        <h2 id="pergunta"></h2>
+        <textarea id="resposta" placeholder="Escreva seu código aqui..."></textarea>
+        <button id="enviarBtn" onclick="verificarResposta()">Enviar</button>
+        <button id="proximaBtn" onclick="proximaPergunta()" style="display:none;margin-left:10px;">Próxima
+            Pergunta</button>
+        <div id="feedback"></div>
+
+        <script>
+            const perguntas = [
+                { pergunta: "1. Mostre na tela: Olá Mundo", resposta: ["escreva(\"Olá Mundo\")", "escreva('Olá Mundo')"] },
+                { pergunta: "2. Mostre seu nome usando escreva", resposta: ["escreva(\"SEU_NOME\")", "escreva('SEU_NOME')"] },
+                { pergunta: "3. Crie uma função chamada saudacao que escreve 'Bem-vindo'", resposta: ["funcao saudacao", "escreva(\"Bem-vindo\")"] },
+                { pergunta: "4. Use SE para mostrar 'Maior de idade' se idade >=18", resposta: ["se", ">=18", "escreva(\"Maior de idade\")"] },
+                { pergunta: "5. Use SENAO para mostrar 'Menor de idade'", resposta: ["senao", "escreva(\"Menor de idade\")"] },
+                { pergunta: "6. Crie um loop ENQUANTO que conte de 1 a 5", resposta: ["enquanto", "incremento", "1", "5"] },
+                { pergunta: "7. Crie um loop PARA de 1 até 10", resposta: ["para", "de 1", "ate 10"] },
+                { pergunta: "8. Crie um vetor chamado numeros com 5 elementos", resposta: ["vetor", "numeros[5]"] },
+                { pergunta: "9. Preencha um vetor com valores 1 a 5 usando loop", resposta: ["para", "numeros", "escreva"] },
+                { pergunta: "10. Crie uma matriz 2x2 e peça para o usuário digitar os valores", resposta: ["matriz", "2][2", "leia"] },
+                { pergunta: "11. Crie função soma(a,b) que retorna a soma", resposta: ["funcao soma", "retorne a + b"] },
+                { pergunta: "12. Chame a função soma(3,4) e mostre resultado", resposta: ["soma(3,4)", "escreva"] },
+                { pergunta: "13. Use escreva para mostrar números pares de 1 a 10", resposta: ["para", "%2==0", "escreva"] },
+                { pergunta: "14. Use escreva para mostrar números ímpares de 1 a 10", resposta: ["para", "%2!=0", "escreva"] },
+                { pergunta: "15. Crie uma função mostrarMensagem que mostra 'Estou aprendendo Portugol'", resposta: ["funcao mostrarMensagem", "escreva(\"Estou aprendendo Portugol\")"] },
+                { pergunta: "16. Crie um vetor chamado nomes e armazene 3 nomes", resposta: ["vetor", "nomes[3]", "escreva"] },
+                { pergunta: "17. Use escreva para mostrar todos os elementos do vetor nomes", resposta: ["para", "nomes", "escreva"] },
+                { pergunta: "18. Crie uma função que recebe um número e retorna o dobro", resposta: ["funcao dobro", "retorne numero*2"] },
+                { pergunta: "19. Chame a função dobro(5) e mostre o resultado", resposta: ["dobro(5)", "escreva"] },
+                { pergunta: "20. Crie um loop ENQUANTO que peça ao usuário um número até que seja 0", resposta: ["enquanto", "leia", "condição"] },
+                { pergunta: "21. Use PARA para somar números de 1 a 20", resposta: ["para", "soma", "escreva"] },
+                { pergunta: "22. Crie uma matriz 3x3 e preencha com valores do usuário", resposta: ["matriz", "3][3", "leia"] },
+                { pergunta: "23. Some todos os valores de uma matriz 3x3 e mostre o resultado", resposta: ["matriz", "soma", "escreva"] },
+                { pergunta: "24. Crie um vetor de 10 números e mostre apenas os pares", resposta: ["vetor", "para", "%2==0", "escreva"] },
+                { pergunta: "25. Crie um vetor de 10 números e mostre apenas os ímpares", resposta: ["vetor", "para", "%2!=0", "escreva"] },
+                { pergunta: "26. Crie função que recebe dois números e retorna o maior", resposta: ["funcao maior", "se", "retorne"] },
+                { pergunta: "27. Crie função que recebe um vetor e retorna a soma de todos os elementos", resposta: ["funcao somaVetor", "para", "retorne"] },
+                { pergunta: "28. Use escreva para mostrar a tabuada do 7", resposta: ["para", "7", "escreva"] },
+                { pergunta: "29. Crie um vetor com 5 elementos e substitua o terceiro por 99", resposta: ["vetor", "3", "99"] },
+                { pergunta: "30. Crie uma função que recebe um nome e escreve 'Olá, NOME'", resposta: ["funcao saudacao", "escreva"] }
+            ];
+            let perguntaAtual = null;
+
+            function carregarPergunta() {
+                perguntaAtual = perguntas[Math.floor(Math.random() * perguntas.length)];
+                document.getElementById("pergunta").innerText = perguntaAtual.pergunta;
+                document.getElementById("resposta").value = "";
+                document.getElementById("feedback").innerText = "";
+                document.getElementById("feedback").className = "";
+                document.getElementById("proximaBtn").style.display = "none";
+                document.getElementById("enviarBtn").style.display = "inline-block";
+            }
+
+            // Chamar primeira pergunta
+            carregarPergunta();
+
+            function verificarResposta() {
+                const codigo = document.getElementById("resposta").value.toLowerCase();
+                let correta = true;
+                for (let p of perguntaAtual.resposta) {
+                    if (!codigo.includes(p.toLowerCase())) {
+                        correta = false;
+                        break;
+                    }
+                }
+                const feedback = document.getElementById("feedback");
+                if (correta) {
+                    feedback.innerText = "✅ Correto!";
+                    feedback.className = "correct";
+                    document.getElementById("proximaBtn").style.display = "inline-block";
+                    document.getElementById("enviarBtn").style.display = "none";
+                } else {
+                    feedback.innerText = "❌ Incorreto! Tente novamente.";
+                    feedback.className = "wrong";
+                }
+            }
+
+            function proximaPergunta() {
+                carregarPergunta();
+            }
+
+            // Menu mobile
+            function toggleMenu() {
+                document.getElementById("sidebar").classList.toggle("active");
+            }
+        </script>
+
+</body>
+
+</html>

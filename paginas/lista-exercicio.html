@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Exercícios | Portugol Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../estilos.css">
+    <link rel="shortcut icon" href="../icon.png" type="image/png">
+    <style>
+        .main h1,
+        .main h2 {
+            color: #38bdf8;
+        }
+
+        .exercise-list {
+            margin-top: 20px;
+        }
+
+        .exercise-list h3 {
+            margin-top: 15px;
+            color: #0ea5e9;
+        }
+
+        .exercise-list ol {
+            padding-left: 20px;
+        }
+
+        .exercise-list li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <div class="sidebar" id="sidebar">
+
+        <h2><a href="../index.html">Portugol</a></h2>
+
+        <ul>
+            <li><a href="introducao.html">Introdução</a></li>
+            <li><a href="estrutura-programa.html">Estrutura do Programa</a></li>
+            <li><a href="variaveis.html">Variáveis</a></li>
+            <li><a href="entrada-saida.html">Entrada e Saída</a></li>
+            <li><a href="condicoes.html">Condicionais</a></li>
+            <li><a href="repeticao.html">Repetição</a></li>
+            <li><a href="vetores.html">Vetores</a></li>
+            <li><a href="matrizes.html">Matrizes</a></li>
+            <li><a href="funcoes.html">Funções</a></li>
+            <li><a href="desafios.html">Desafios</a></li>
+            <li><a href="atalhos.html">Atalhos</a></li>
+            <li><a href="lista-exercicio.html">Lista de Exercicios</a></li>
+        </ul>
+
+    </div>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="main">
+        <h1>Lista de Exercícios de Portugol</h1>
+
+        <div class="exercise-list">
+            <h2>Básico (1–7)</h2>
+            <ol>
+                <li>Mostre na tela os números de 1 a 10 usando PARA.</li>
+                <li>Mostre apenas os números pares de 1 a 20 usando PARA e SE.</li>
+                <li>Leia a idade do usuário e informe se ele é maior de idade ou menor de idade.</li>
+                <li>Leia um número e diga se ele é positivo, negativo ou zero.</li>
+                <li>Leia dois números e mostre qual é o maior.</li>
+                <li>Crie um loop ENQUANTO que conte de 10 até 1 e mostre os números.</li>
+                <li>Leia o nome do usuário e mostre uma saudação personalizada: “Olá, [nome]”.</li>
+            </ol>
+
+            <h2>Intermediário (8–14)</h2>
+            <ol start="8">
+                <li>Leia 5 números em um vetor e mostre a soma deles.</li>
+                <li>Leia 10 números e conte quantos são pares e quantos são ímpares.</li>
+                <li>Leia um número e mostre a tabuada desse número de 1 até 10.</li>
+                <li>Leia a nota de 5 alunos e calcule a média. Mostre se a média é aprovado ou reprovado (>=6 aprovado).
+                </li>
+                <li>Leia um número e verifique se ele é primo.</li>
+                <li>Crie um vetor de 5 elementos, preencha com números digitados e mostre o maior e o menor valor.</li>
+                <li>Leia números até que o usuário digite 0. Ao final, mostre a soma total.</li>
+            </ol>
+
+            <h2>Avançado (15–20)</h2>
+            <ol start="15">
+                <li>Leia 10 números e mostre quantos números estão entre 10 e 50.</li>
+                <li>Crie um vetor de 10 elementos, preencha com números aleatórios de 1 a 100, e mostre apenas os
+                    números divisíveis por 3.</li>
+                <li>Leia a idade e o sexo de 5 pessoas e informe:
+                    <ul>
+                        <li>Quantos homens</li>
+                        <li>Quantas mulheres</li>
+                        <li>Quantos maiores de idade</li>
+                    </ul>
+                </li>
+                <li>Crie um programa que leia uma senha do usuário e continue pedindo até que ele digite a senha
+                    correta.</li>
+                <li>Crie uma matriz 3x3 e leia os valores. Mostre a soma de cada linha e de cada coluna.</li>
+                <li>Faça um jogo simples: o computador escolhe um número de 1 a 20 e o usuário tem 3 tentativas para
+                    adivinhar. Dê dicas de “maior” ou “menor” após cada tentativa.</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("sidebar").classList.toggle("active");
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Funções | Portugol Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../estilos.css">
+    <link rel="shortcut icon" href="../icon.png" type="image/png">
+
+</head>
+
+<body>
+
+<div id="menu"></div>
+
+<div class="main">
+
+<section class="hero">
+
+<h1>Funções</h1>
+
+<p>
+Funções são blocos de código que realizam uma tarefa específica.
+Elas ajudam a organizar melhor o programa e evitar repetição de código.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<h2>O que é uma Função?</h2>
+
+<p>
+Uma função é um conjunto de instruções que pode ser chamado sempre que necessário.
+</p>
+
+<div class="card">
+
+<h3>Exemplo do dia a dia</h3>
+
+<p>
+
+Imagine uma função chamada <strong>prepararCafe()</strong>.
+
+<br><br>
+
+Sempre que você chamar essa função, ela executará todos os passos
+necessários para preparar o café.
+
+</p>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Estrutura de uma Função</h2>
+
+<p>
+Para criar uma função no Portugol utilizamos a palavra <strong>funcao</strong>.
+</p>
+
+<div class="card">
+
+<h3>Exemplo</h3>
+
+<pre>
+funcao saudacao()
+{
+    escreva("Olá, seja bem-vindo!")
+}
+</pre>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Chamando uma Função</h2>
+
+<p>
+Depois de criar uma função, podemos chamá-la dentro da função <strong>inicio()</strong>.
+</p>
+
+<div class="card">
+
+<h3>Exemplo</h3>
+
+<pre>
+programa
+{
+
+    funcao saudacao()
+    {
+        escreva("Olá!")
+    }
+
+    funcao inicio()
+    {
+
+        saudacao()
+
+    }
+
+}
+</pre>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Funções com Parâmetros</h2>
+
+<p>
+As funções podem receber valores chamados <strong>parâmetros</strong>.
+</p>
+
+<div class="card">
+
+<h3>Exemplo</h3>
+
+<pre>
+funcao mostrarNome(cadeia nome)
+{
+    escreva("Olá ", nome)
+}
+</pre>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Funções com Retorno</h2>
+
+<p>
+Algumas funções podem retornar um valor utilizando a palavra <strong>retorne</strong>.
+</p>
+
+<div class="card">
+
+<h3>Exemplo</h3>
+
+<pre>
+funcao inteiro soma(inteiro a, inteiro b)
+{
+    retorne a + b
+}
+</pre>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Exemplo Completo</h2>
+
+<div class="card">
+
+<pre>
+programa
+{
+
+    funcao inteiro soma(inteiro a, inteiro b)
+    {
+        retorne a + b
+    }
+
+    funcao inicio()
+    {
+
+        inteiro resultado
+
+        resultado = soma(5, 3)
+
+        escreva("Resultado: ", resultado)
+
+    }
+
+}
+</pre>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Exercício</h2>
+
+<div class="card">
+
+<h3>Pratique</h3>
+
+<p>
+
+Crie um programa que:
+
+<br><br>
+
+1️⃣ Crie uma função chamada <strong>mostrarMensagem</strong>  <br>
+2️⃣ A função deve mostrar a mensagem **"Estou aprendendo Portugol"**  <br>
+3️⃣ Chame essa função dentro da função <strong>inicio()</strong>
+
+</p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>
+Portal Portugol • Desenvolvido para ensino de lógica de programação
+</p>
+
+</footer>
+
+</div>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>

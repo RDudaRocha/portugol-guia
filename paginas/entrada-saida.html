@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Entrada e Saída | Portugol Academy</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../estilos.css">
+    <link rel="shortcut icon" href="../icon.png" type="image/png">
+
+</head>
+
+<body>
+
+    <div id="menu"></div>
+
+    <div class="main">
+
+        <section class="hero">
+
+            <h1>Entrada e Saída de Dados</h1>
+
+            <p>
+                Em um programa precisamos interagir com o usuário.
+                Para isso utilizamos comandos de entrada e saída de dados.
+            </p>
+
+        </section>
+
+
+        <section class="section">
+
+            <h2>Saída de Dados</h2>
+
+            <p>
+                A saída de dados serve para mostrar informações na tela.
+                No Portugol utilizamos o comando <strong>escreva()</strong>.
+            </p>
+
+            <div class="card">
+
+                <h3>Exemplo</h3>
+
+                <pre>
+programa
+{
+    funcao inicio()
+    {
+
+        escreva("Olá mundo")
+
+    }
+}
+</pre>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <h2>Mostrando Variáveis</h2>
+
+            <p>
+                Também podemos mostrar valores armazenados em variáveis.
+            </p>
+
+            <div class="card">
+
+                <h3>Exemplo</h3>
+
+                <pre>
+programa
+{
+    funcao inicio()
+    {
+
+        cadeia nome
+        nome = "Maria"
+
+        escreva("Nome: ", nome)
+
+    }
+}
+</pre>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <h2>Entrada de Dados</h2>
+
+            <p>
+                A entrada de dados permite que o usuário digite informações.
+                No Portugol utilizamos o comando <strong>leia()</strong>.
+            </p>
+
+            <div class="card">
+
+                <h3>Exemplo</h3>
+
+                <pre>
+inteiro idade
+
+leia(idade)
+</pre>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <h2>Exemplo Completo</h2>
+
+            <div class="card">
+
+                <pre>
+programa
+{
+    funcao inicio()
+    {
+
+        cadeia nome
+        inteiro idade
+
+        escreva("Digite seu nome: ")
+        leia(nome)
+
+        escreva("Digite sua idade: ")
+        leia(idade)
+
+        escreva("Seu nome é: ", nome)
+        escreva("Sua idade é: ", idade)
+
+    }
+}
+</pre>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <h2>Boas Práticas</h2>
+
+            <div class="grid">
+
+                <div class="card">
+
+                    <h3>Peça informações claramente</h3>
+
+                    <p>
+                        Sempre mostre uma mensagem antes do leia() para o usuário saber o que deve digitar.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Organize as saídas</h3>
+
+                    <p>
+                        Utilize escreva() para mostrar mensagens claras e organizadas.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Use variáveis corretas</h3>
+
+                    <p>
+                        Certifique-se de usar o tipo correto de variável para cada informação.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <h2>Exercício</h2>
+
+            <div class="card">
+
+                <h3>Pratique</h3>
+
+                <p>
+
+                    Crie um programa que:
+
+                    <br><br>
+
+                    1️⃣ Peça o nome do usuário<br>
+                    2️⃣ Peça a idade<br>
+                    3️⃣ Mostre a seguinte mensagem:
+
+                    <br><br>
+
+                    Olá NOME
+                    Você tem IDADE anos
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            <p>
+                Portal Portugol • Desenvolvido para ensino de lógica de programação
+            </p>
+
+        </footer>
+
+    </div>
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>

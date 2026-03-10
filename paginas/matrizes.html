@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Matrizes | Portugol Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../estilos.css">
+    <link rel="shortcut icon" href="../icon.png" type="image/png">
+
+</head>
+
+<body>
+
+<div id="menu"></div>
+
+<div class="main">
+
+<section class="hero">
+
+<h1>Matrizes</h1>
+
+<p>
+Matrizes são estruturas de dados que armazenam valores em duas dimensões:
+linhas e colunas.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<h2>O que é uma Matriz?</h2>
+
+<p>
+Uma matriz é como uma tabela composta por linhas e colunas.
+Cada posição da matriz possui dois índices.
+</p>
+
+<div class="card">
+
+<h3>Exemplo de matriz 3x3</h3>
+
+<p>
+
+[0][0]  [0][1]  [0][2]  
+<br>
+[1][0]  [1][1]  [1][2]  
+<br>
+[2][0]  [2][1]  [2][2]
+
+</p>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Declarando uma Matriz</h2>
+
+<p>
+Para declarar uma matriz no Portugol usamos dois conjuntos de colchetes.
+</p>
+
+<div class="card">
+
+<h3>Exemplo</h3>
+
+<pre>
+inteiro numeros[3][3]
+</pre>
+
+<p>
+
+Isso significa uma matriz com <strong>3 linhas</strong> e <strong>3 colunas</strong>.
+
+</p>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Atribuindo Valores</h2>
+
+<p>
+Cada posição da matriz possui dois índices: linha e coluna.
+</p>
+
+<div class="card">
+
+<h3>Exemplo</h3>
+
+<pre>
+inteiro numeros[2][2]
+
+numeros[0][0] = 10
+numeros[0][1] = 20
+
+numeros[1][0] = 30
+numeros[1][1] = 40
+</pre>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Usando Matrizes com Repetição</h2>
+
+<p>
+Normalmente utilizamos dois loops para percorrer uma matriz:
+um para linhas e outro para colunas.
+</p>
+
+<div class="card">
+
+<h3>Exemplo</h3>
+
+<pre>
+programa
+{
+    funcao inicio()
+    {
+
+        inteiro matriz[3][3]
+        inteiro i, j
+
+        para(i = 0; i < 3; i++)
+        {
+            para(j = 0; j < 3; j++)
+            {
+                escreva("Digite um número: ")
+                leia(matriz[i][j])
+            }
+        }
+
+        para(i = 0; i < 3; i++)
+        {
+            para(j = 0; j < 3; j++)
+            {
+                escreva(matriz[i][j])
+            }
+        }
+
+    }
+}
+</pre>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Estrutura de uma Matriz</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Linhas</h3>
+
+<p>
+Representam a primeira dimensão da matriz.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Colunas</h3>
+
+<p>
+Representam a segunda dimensão da matriz.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Índices</h3>
+
+<p>
+Assim como vetores, matrizes começam no índice <strong>0</strong>.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Exercício</h2>
+
+<div class="card">
+
+<h3>Pratique</h3>
+
+<p>
+
+Crie um programa que:
+
+<br><br>
+
+1️⃣ Crie uma matriz 3x3  <br>
+2️⃣ Peça para o usuário digitar os valores  <br>
+3️⃣ Mostre todos os valores digitados
+
+</p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>
+Portal Portugol • Desenvolvido para ensino de lógica de programação
+</p>
+
+</footer>
+
+</div>
+
+<script src="../script.js"></script>
+
+</body>
+
+</html>

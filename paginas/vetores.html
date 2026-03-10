@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vetores | Portugol Academy</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../estilos.css">
+    <link rel="shortcut icon" href="../icon.png" type="image/png">
+
+</head>
+
+<body>
+
+    <div id="menu"></div>
+
+    <div class="main">
+
+        <section class="hero">
+
+            <h1>Vetores</h1>
+
+            <p>
+                Vetores são estruturas que permitem armazenar vários valores do mesmo tipo
+                em uma única variável.
+            </p>
+
+        </section>
+
+
+        <section class="section">
+
+            <h2>O que é um Vetor?</h2>
+
+            <p>
+                Um vetor é como uma lista de valores armazenados em sequência.
+                Cada valor possui uma posição chamada <strong>índice</strong>.
+            </p>
+
+            <div class="card">
+
+                <h3>Exemplo</h3>
+
+                <p>
+
+                    Imagine um vetor chamado <strong>numeros</strong> com 5 posições.
+
+                    <br><br>
+
+                    numeros[0]
+                    numeros[1]
+                    numeros[2]
+                    numeros[3]
+                    numeros[4]
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <h2>Declarando um Vetor</h2>
+
+            <p>
+                Para criar um vetor no Portugol utilizamos colchetes <strong>[ ]</strong>.
+            </p>
+
+            <div class="card">
+
+                <h3>Exemplo</h3>
+
+                <pre>
+inteiro numeros[5]
+</pre>
+
+                <p>
+
+                    Isso significa que o vetor pode armazenar <strong>5 números inteiros</strong>.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <h2>Atribuindo Valores</h2>
+
+            <p>
+                Podemos guardar valores em cada posição do vetor utilizando o índice.
+            </p>
+
+            <div class="card">
+
+                <h3>Exemplo</h3>
+
+                <pre>
+inteiro numeros[5]
+
+numeros[0] = 10
+numeros[1] = 20
+numeros[2] = 30
+numeros[3] = 40
+numeros[4] = 50
+</pre>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <h2>Usando Vetores com Repetição</h2>
+
+            <p>
+                Normalmente utilizamos loops para preencher ou percorrer um vetor.
+            </p>
+
+            <div class="card">
+
+                <h3>Exemplo</h3>
+
+                <pre>
+programa
+{
+    funcao inicio()
+    {
+
+        inteiro numeros[5]
+        inteiro i
+
+        para (i = 0; i < 5; i++)
+        {
+            escreva("Digite um número: ")
+            leia(numeros[i])
+        }
+
+        para (i = 0; i < 5; i++)
+        {
+            escreva(numeros[i])
+        }
+
+    }
+}
+</pre>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <h2>Índices do Vetor</h2>
+
+            <div class="grid">
+
+                <div class="card">
+
+                    <h3>Primeira posição</h3>
+
+                    <p>
+                        Todo vetor começa no índice <strong>0</strong>.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Última posição</h3>
+
+                    <p>
+                        A última posição será sempre <strong>tamanho - 1</strong>.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Exemplo</h3>
+
+                    <p>
+                        Um vetor de tamanho 5 vai de <strong>0 até 4</strong>.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <h2>Exercício</h2>
+
+            <div class="card">
+
+                <h3>Pratique</h3>
+
+                <p>
+
+                    Crie um programa que:
+
+                    <br><br>
+
+                    1️⃣ Crie um vetor com 5 números <br>
+                    2️⃣ Peça para o usuário digitar os números<br>
+                    3️⃣ Mostre todos os números digitados
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            <p>
+                Portal Portugol • Desenvolvido para ensino de lógica de programação
+            </p>
+
+        </footer>
+
+    </div>
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
