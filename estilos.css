@@ -217,3 +217,67 @@ color:#38bdf8;
     }
 
 }
+
+
+/* empurra o item para o final */
+.sidebar .menu-bottom {
+    margin-top: auto;
+}
+
+/* estilo do botão desafio */
+.sidebar .menu-bottom a {
+    background: #38bdf8;
+    color: #020617;
+    display: block;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* largura do scroll */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* trilho */
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* barra */
+.sidebar::-webkit-scrollbar-thumb {
+    background: #1b475a;
+    border-radius: 10px;
+}
+
+/* hover */
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #1b475a;
+}
+
+/* largura do scroll */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* trilho */
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* barra */
+.sidebar::-webkit-scrollbar-thumb {
+    background: #1b475a;
+    border-radius: 10px;
+}
+
+/* hover */
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #1b475a;
+}
+
+.hero-link{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}

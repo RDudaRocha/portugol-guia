@@ -35,29 +35,7 @@
 </head>
 
 <body>
-
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-    <div class="sidebar" id="sidebar">
-
-        <h2><a href="../index.html">Portugol</a></h2>
-
-        <ul>
-            <li><a href="introducao.html">Introdução</a></li>
-            <li><a href="estrutura-programa.html">Estrutura do Programa</a></li>
-            <li><a href="variaveis.html">Variáveis</a></li>
-            <li><a href="entrada-saida.html">Entrada e Saída</a></li>
-            <li><a href="condicoes.html">Condicionais</a></li>
-            <li><a href="repeticao.html">Repetição</a></li>
-            <li><a href="vetores.html">Vetores</a></li>
-            <li><a href="matrizes.html">Matrizes</a></li>
-            <li><a href="funcoes.html">Funções</a></li>
-            <li><a href="desafios.html">Desafios</a></li>
-            <li><a href="atalhos.html">Atalhos</a></li>
-            <li><a href="lista-exercicio.html">Lista de Exercicios</a></li>
-        </ul>
-
-    </div>
+    <div id="menu"></div>
     <!-- CONTEÚDO PRINCIPAL -->
     <div class="main">
         <h1>Lista de Exercícios de Portugol</h1>
@@ -106,7 +84,8 @@
             </ol>
         </div>
     </div>
-
+    
+    <script src="../script.js"></script>
     <script>
         function toggleMenu() {
             document.getElementById("sidebar").classList.toggle("active");

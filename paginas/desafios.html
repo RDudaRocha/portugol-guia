@@ -4,190 +4,751 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafios | Portugol Academy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../estilos.css">
-    <link rel="shortcut icon" href="../icon.png" type="image/png">
+    <title>Desafio Portugol</title>
+
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
             background: #0f172a;
             color: white;
+            font-family: Arial;
             margin: 0;
-            padding: 0;
+            padding: 30px;
         }
 
-        .main {
-            padding: 40px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        h1,
-        h2,
-        h3 {
+        h1 {
             color: #38bdf8;
         }
 
-        textarea {
-            width: 100%;
-            height: 150px;
-            background: #1e293b;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 10px 0;
-            font-family: monospace;
-            font-size: 14px;
+        #editor {
+            height: 420px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
 
         button {
-            padding: 10px 20px;
-            border: none;
             background: #38bdf8;
-            color: #020617;
-            font-weight: 600;
+            border: none;
+            padding: 10px 20px;
             border-radius: 8px;
+            font-weight: bold;
             cursor: pointer;
+            margin-right: 10px;
         }
 
         button:hover {
             background: #0ea5e9;
         }
 
-        #feedback {
-            margin-top: 15px;
-            padding: 15px;
-            border-radius: 8px;
+        .finalizar {
+            background: #ef4444;
+        }
+
+        .terminal {
+            background: #000;
+            color: #00ff00;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-family: monospace;
+            min-height: 150px;
+            white-space: pre-line;
+        }
+
+        .terminal-input {
+            margin-top: 10px;
+        }
+
+        .terminal-input input {
+            background: #111;
+            border: 1px solid #333;
+            color: #00ff00;
+            padding: 8px;
+            width: 200px;
+            font-family: monospace;
         }
 
         .correct {
             background: #16a34a;
-            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
         }
 
         .wrong {
             background: #dc2626;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        #status {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        #tempo {
+            margin-top: 5px;
+        }
+
+        body {
+            background: #0f172a;
             color: white;
+            font-family: Arial;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #38bdf8;
+        }
+
+        /* EDITOR */
+        #editor {
+            height: 420px;
+            border-radius: 10px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        /* BOTÕES */
+        button {
+            background: #38bdf8;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 8px;
+        }
+
+        button:hover {
+            background: #0ea5e9;
+        }
+
+        .finalizar {
+            background: #ef4444;
+        }
+
+        /* CONTAINER BOTÕES */
+        .botoes {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* TERMINAL */
+        .terminal {
+            background: #000;
+            color: #00ff00;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-family: monospace;
+            min-height: 150px;
+            white-space: pre-line;
+            overflow-x: auto;
+        }
+
+        /* INPUT TERMINAL */
+        .terminal-input {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .terminal-input input {
+            background: #111;
+            border: 1px solid #333;
+            color: #00ff00;
+            padding: 8px;
+            font-family: monospace;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        /* FEEDBACK */
+        .correct {
+            background: #16a34a;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .wrong {
+            background: #dc2626;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        #status {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        #tempo {
+            margin-top: 5px;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+
+            body {
+                padding: 15px;
+            }
+
+            #editor {
+                height: 300px;
+            }
+
+            button {
+                flex: 1;
+                min-width: 120px;
+            }
+
         }
     </style>
+
+    <script src="https://unpkg.com/monaco-editor@0.44.0/min/vs/loader.js"></script>
+
 </head>
 
 <body>
 
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <h1>Desafio Portugol</h1>
 
-    <div class="sidebar" id="sidebar">
+    <div id="status"></div>
+    <div id="tempo">Tempo: 0s</div>
 
-        <h2><a href="../index.html">Portugol</a></h2>
+    <h2 id="pergunta"></h2>
 
-        <ul>
-            <li><a href="introducao.html">Introdução</a></li>
-            <li><a href="estrutura-programa.html">Estrutura do Programa</a></li>
-            <li><a href="variaveis.html">Variáveis</a></li>
-            <li><a href="entrada-saida.html">Entrada e Saída</a></li>
-            <li><a href="condicoes.html">Condicionais</a></li>
-            <li><a href="repeticao.html">Repetição</a></li>
-            <li><a href="vetores.html">Vetores</a></li>
-            <li><a href="matrizes.html">Matrizes</a></li>
-            <li><a href="funcoes.html">Funções</a></li>
-            <li><a href="desafios.html">Desafios</a></li>
-            <li><a href="atalhos.html">Atalhos</a></li>
-            <li><a href="lista-exercicio.html">Lista de Exercicios</a></li>
-        </ul>
+    <div id="editor"></div>
 
+    <br>
+
+    <div class="botoes">
+        <button onclick="executarCodigo()">Executar</button>
+        <button id="btnEnviar" onclick="verificarResposta()">Enviar</button>
+        <button onclick="mostrarDica()">Dica</button>
+        <button onclick="limparTerminal()">Limpar Terminal</button>
+        <button id="proximaBtn" onclick="proximaPergunta()" style="display:none;">Próxima</button>
+        <button class="finalizar" onclick="finalizarProva()">Finalizar Prova</button>
     </div>
-    <!-- CONTEÚDO PRINCIPAL -->
-    <div class="main">
-        <h1>Desafios de Portugol</h1>
-        <p>Resolva o desafio abaixo escrevendo o código em Portugol. Clique em "Enviar" para verificar sua resposta.</p>
 
-        <h2 id="pergunta"></h2>
-        <textarea id="resposta" placeholder="Escreva seu código aqui..."></textarea>
-        <button id="enviarBtn" onclick="verificarResposta()">Enviar</button>
-        <button id="proximaBtn" onclick="proximaPergunta()" style="display:none;margin-left:10px;">Próxima
-            Pergunta</button>
-        <div id="feedback"></div>
+    <div id="feedback"></div>
 
-        <script>
-            const perguntas = [
-                { pergunta: "1. Mostre na tela: Olá Mundo", resposta: ["escreva(\"Olá Mundo\")", "escreva('Olá Mundo')"] },
-                { pergunta: "2. Mostre seu nome usando escreva", resposta: ["escreva(\"SEU_NOME\")", "escreva('SEU_NOME')"] },
-                { pergunta: "3. Crie uma função chamada saudacao que escreve 'Bem-vindo'", resposta: ["funcao saudacao", "escreva(\"Bem-vindo\")"] },
-                { pergunta: "4. Use SE para mostrar 'Maior de idade' se idade >=18", resposta: ["se", ">=18", "escreva(\"Maior de idade\")"] },
-                { pergunta: "5. Use SENAO para mostrar 'Menor de idade'", resposta: ["senao", "escreva(\"Menor de idade\")"] },
-                { pergunta: "6. Crie um loop ENQUANTO que conte de 1 a 5", resposta: ["enquanto", "incremento", "1", "5"] },
-                { pergunta: "7. Crie um loop PARA de 1 até 10", resposta: ["para", "de 1", "ate 10"] },
-                { pergunta: "8. Crie um vetor chamado numeros com 5 elementos", resposta: ["vetor", "numeros[5]"] },
-                { pergunta: "9. Preencha um vetor com valores 1 a 5 usando loop", resposta: ["para", "numeros", "escreva"] },
-                { pergunta: "10. Crie uma matriz 2x2 e peça para o usuário digitar os valores", resposta: ["matriz", "2][2", "leia"] },
-                { pergunta: "11. Crie função soma(a,b) que retorna a soma", resposta: ["funcao soma", "retorne a + b"] },
-                { pergunta: "12. Chame a função soma(3,4) e mostre resultado", resposta: ["soma(3,4)", "escreva"] },
-                { pergunta: "13. Use escreva para mostrar números pares de 1 a 10", resposta: ["para", "%2==0", "escreva"] },
-                { pergunta: "14. Use escreva para mostrar números ímpares de 1 a 10", resposta: ["para", "%2!=0", "escreva"] },
-                { pergunta: "15. Crie uma função mostrarMensagem que mostra 'Estou aprendendo Portugol'", resposta: ["funcao mostrarMensagem", "escreva(\"Estou aprendendo Portugol\")"] },
-                { pergunta: "16. Crie um vetor chamado nomes e armazene 3 nomes", resposta: ["vetor", "nomes[3]", "escreva"] },
-                { pergunta: "17. Use escreva para mostrar todos os elementos do vetor nomes", resposta: ["para", "nomes", "escreva"] },
-                { pergunta: "18. Crie uma função que recebe um número e retorna o dobro", resposta: ["funcao dobro", "retorne numero*2"] },
-                { pergunta: "19. Chame a função dobro(5) e mostre o resultado", resposta: ["dobro(5)", "escreva"] },
-                { pergunta: "20. Crie um loop ENQUANTO que peça ao usuário um número até que seja 0", resposta: ["enquanto", "leia", "condição"] },
-                { pergunta: "21. Use PARA para somar números de 1 a 20", resposta: ["para", "soma", "escreva"] },
-                { pergunta: "22. Crie uma matriz 3x3 e preencha com valores do usuário", resposta: ["matriz", "3][3", "leia"] },
-                { pergunta: "23. Some todos os valores de uma matriz 3x3 e mostre o resultado", resposta: ["matriz", "soma", "escreva"] },
-                { pergunta: "24. Crie um vetor de 10 números e mostre apenas os pares", resposta: ["vetor", "para", "%2==0", "escreva"] },
-                { pergunta: "25. Crie um vetor de 10 números e mostre apenas os ímpares", resposta: ["vetor", "para", "%2!=0", "escreva"] },
-                { pergunta: "26. Crie função que recebe dois números e retorna o maior", resposta: ["funcao maior", "se", "retorne"] },
-                { pergunta: "27. Crie função que recebe um vetor e retorna a soma de todos os elementos", resposta: ["funcao somaVetor", "para", "retorne"] },
-                { pergunta: "28. Use escreva para mostrar a tabuada do 7", resposta: ["para", "7", "escreva"] },
-                { pergunta: "29. Crie um vetor com 5 elementos e substitua o terceiro por 99", resposta: ["vetor", "3", "99"] },
-                { pergunta: "30. Crie uma função que recebe um nome e escreve 'Olá, NOME'", resposta: ["funcao saudacao", "escreva"] }
-            ];
-            let perguntaAtual = null;
+    <h3>Terminal</h3>
 
-            function carregarPergunta() {
-                perguntaAtual = perguntas[Math.floor(Math.random() * perguntas.length)];
-                document.getElementById("pergunta").innerText = perguntaAtual.pergunta;
-                document.getElementById("resposta").value = "";
-                document.getElementById("feedback").innerText = "";
-                document.getElementById("feedback").className = "";
-                document.getElementById("proximaBtn").style.display = "none";
-                document.getElementById("enviarBtn").style.display = "inline-block";
+    <div id="terminal" class="terminal"></div>
+
+    <div class="terminal-input">
+        <input id="terminalInput" placeholder="Digite aqui...">
+        <button onclick="enviarEntrada()">Enviar</button>
+    </div>
+
+    <script>
+
+        const codigoBase = `programa
+{
+    funcao inicio()
+    {
+
+    }
+}`
+
+        const perguntas = [
+            { pergunta: "Mostre na tela: Olá Mundo", resposta: ["escreva", "olá mundo"], dica: "Use escreva(\"Olá Mundo\")" },
+            { pergunta: "Use escreva para mostrar seu nome", resposta: ["escreva"], dica: "Use escreva(\"Seu Nome\")" },
+            { pergunta: "Use SE para verificar se idade >=18", resposta: ["se", ">=18"], dica: "Use se(idade >= 18)" },
+            { pergunta: "Crie um PARA de 1 até 10", resposta: ["para", "10"], dica: "Use para(i=1;i<=10;i++)" },
+            { pergunta: "Crie vetor numeros[5]", resposta: ["vetor", "5"], dica: "vetor numeros[5]" },
+            { pergunta: "Mostre números pares de 1 a 10", resposta: ["%2", "para"], dica: "Use %2 para pares" },
+            { pergunta: "Mostre números ímpares", resposta: ["%2"], dica: "Use %2 != 0" },
+            { pergunta: "Crie função soma(a,b)", resposta: ["funcao", "soma"], dica: "funcao soma(a,b)" },
+            { pergunta: "Use leia()", resposta: ["leia"], dica: "leia(variavel)" },
+            { pergunta: "Crie matriz 2x2", resposta: ["matriz", "2"], dica: "matriz[2][2]" },
+
+            { pergunta: "Crie vetor nomes[3]", resposta: ["vetor", "nomes"], dica: "vetor nomes[3]" },
+            { pergunta: "Use PARA para mostrar vetor", resposta: ["para"], dica: "Use um loop para" },
+            { pergunta: "Crie função dobro(numero)", resposta: ["funcao", "dobro"], dica: "funcao dobro(numero)" },
+            { pergunta: "Mostre tabuada do 7", resposta: ["7", "para"], dica: "Use para com 7" },
+            { pergunta: "Some números de 1 a 20", resposta: ["para"], dica: "Use acumulador" },
+
+            { pergunta: "Substitua terceiro elemento do vetor por 99", resposta: ["99"], dica: "vetor[2]=99" },
+            { pergunta: "Crie função maior(a,b)", resposta: ["funcao", "se"], dica: "Use se dentro da função" },
+            { pergunta: "Crie vetor 10 números", resposta: ["vetor", "10"], dica: "vetor numeros[10]" },
+            { pergunta: "Crie matriz 3x3", resposta: ["matriz", "3"], dica: "matriz[3][3]" },
+            { pergunta: "Leia número até ser 0", resposta: ["enquanto"], dica: "enquanto(numero!=0)" },
+
+            { pergunta: "Crie função saudacao(nome)", resposta: ["funcao", "saudacao"], dica: "funcao saudacao(nome)" },
+            { pergunta: "Use escreva para mostrar resultado", resposta: ["escreva"], dica: "escreva(resultado)" },
+            { pergunta: "Use PARA para somar números", resposta: ["para"], dica: "Use acumulador" },
+            { pergunta: "Crie função somaVetor", resposta: ["funcao"], dica: "funcao somaVetor" },
+            { pergunta: "Mostre todos elementos do vetor", resposta: ["para"], dica: "Use para percorrer vetor" },
+
+            { pergunta: "Crie vetor de 5 elementos", resposta: ["vetor", "5"], dica: "vetor numeros[5]" },
+            { pergunta: "Mostre números de 1 a 5", resposta: ["para"], dica: "para(i=1;i<=5;i++)" },
+            { pergunta: "Mostre mensagem Aprendendo Portugol", resposta: ["portugol"], dica: "escreva(\"Aprendendo Portugol\")" },
+            { pergunta: "Use SE e SENAO", resposta: ["se", "senao"], dica: "Use estrutura condicional" },
+            { pergunta: "Mostre Olá Nome", resposta: ["olá"], dica: "escreva(\"Olá\",nome)" }
+        ]
+
+        let perguntasSelecionadas = []
+        let perguntaAtual = 0
+        let acertos = 0
+        let editor
+
+        let tempo = 0
+        setInterval(() => {
+            tempo++
+            document.getElementById("tempo").innerText = "Tempo: " + tempo + "s"
+        }, 1000)
+
+        function embaralhar(array) {
+            return array.sort(() => Math.random() - 0.5)
+        }
+
+        function iniciarDesafio() {
+            perguntasSelecionadas = embaralhar(perguntas).slice(0, 5)
+            carregarPergunta()
+        }
+
+        function atualizarStatus() {
+            document.getElementById("status").innerHTML =
+                "Acertos: " + acertos + " | Pergunta " + (perguntaAtual + 1) + " de " + perguntasSelecionadas.length
+        }
+
+        function carregarPergunta() {
+
+            if (perguntaAtual >= perguntasSelecionadas.length) {
+                finalizarProva()
+                return
             }
 
-            // Chamar primeira pergunta
-            carregarPergunta();
+            atualizarStatus()
 
-            function verificarResposta() {
-                const codigo = document.getElementById("resposta").value.toLowerCase();
-                let correta = true;
-                for (let p of perguntaAtual.resposta) {
-                    if (!codigo.includes(p.toLowerCase())) {
-                        correta = false;
-                        break;
+            document.getElementById("pergunta").innerText =
+                "Pergunta " + (perguntaAtual + 1) + " de " + perguntasSelecionadas.length + ": " +
+                perguntasSelecionadas[perguntaAtual].pergunta
+
+            editor.setValue(codigoBase)
+
+            document.getElementById("feedback").innerHTML = ""
+            document.getElementById("proximaBtn").style.display = "none"
+            document.getElementById("btnEnviar").disabled = false
+
+        }
+
+        function verificarResposta() {
+
+            let codigo = editor.getValue().toLowerCase()
+            codigo = codigo.replace(/\/\/.*$/gm, "")
+
+            let correta = true
+            let faltando = []
+
+            if (!codigo.includes("programa") || !codigo.includes("funcao inicio")) {
+                correta = false
+                faltando.push("estrutura programa")
+            }
+
+            let requisitos = perguntasSelecionadas[perguntaAtual].resposta
+
+            for (let r of requisitos) {
+                if (!codigo.includes(r)) {
+                    correta = false
+                    faltando.push(r)
+                }
+            }
+
+            const feedback = document.getElementById("feedback")
+
+            if (correta) {
+
+                acertos++
+
+                feedback.innerHTML = "✅ Código aceito!"
+                feedback.className = "correct"
+
+                document.getElementById("btnEnviar").disabled = true
+                document.getElementById("proximaBtn").style.display = "inline-block"
+
+                atualizarStatus()
+
+            } else {
+
+                feedback.innerHTML = "❌ Faltou usar: " + faltando.join(", ")
+                feedback.className = "wrong"
+
+            }
+
+        }
+
+        function proximaPergunta() {
+            perguntaAtual++
+            carregarPergunta()
+        }
+
+        function mostrarDica() {
+            alert(perguntasSelecionadas[perguntaAtual].dica)
+        }
+
+        function limparTerminal() {
+            document.getElementById("terminal").innerHTML = ""
+        }
+
+        let esperandoEntrada = false
+        let variavelLeitura = ""
+        let variaveis = {}
+        let linhasCodigo = []
+        let linhaAtual = 0
+
+        function executarCodigo() {
+
+            let codigo = editor.getValue()
+            let terminal = document.getElementById("terminal")
+
+            terminal.innerHTML = ""
+            variaveis = {}
+            linhasCodigo = codigo.split("\n")
+            linhaAtual = 0
+
+            executarLinha()
+
+        }
+
+        function executarLinha() {
+
+            let terminal = document.getElementById("terminal")
+
+            while (linhaAtual < linhasCodigo.length) {
+
+                let linha = linhasCodigo[linhaAtual].trim()
+
+                // Ignorar linhas vazias
+                if (linha === "" || linha === "{" || linha === "}") {
+                    linhaAtual++
+                    continue
+                }
+
+                // =====================
+                // DECLARAÇÃO DE VARIÁVEL
+                // =====================
+                if (linha.startsWith("inteiro") || linha.startsWith("real") || linha.startsWith("cadeia")) {
+
+                    let tipo = linha.split(" ")[0]
+                    let nomes = linha.replace(tipo, "").replace(";", "").split(",")
+
+                    nomes.forEach(n => {
+                        variaveis[n.trim()] = 0
+                    })
+
+                    linhaAtual++
+                    continue
+                }
+
+                // =====================
+                // ATRIBUIÇÃO
+                // =====================
+                if (linha.includes("=") && !linha.startsWith("se") && !linha.startsWith("para")) {
+
+                    let partes = linha.replace(";", "").split("=")
+
+                    let variavel = partes[0].trim()
+                    let expressao = partes[1]
+
+                    for (let v in variaveis) {
+                        expressao = expressao.replace(new RegExp("\\b" + v + "\\b", "g"), variaveis[v])
+                    }
+
+                    try {
+                        variaveis[variavel] = eval(expressao)
+                    } catch (e) { }
+
+                    linhaAtual++
+                    continue
+                }
+
+                // =====================
+                // ESCREVA
+                // =====================
+                if (linha.startsWith("escreva")) {
+
+                    let match = linha.match(/\((.*?)\)/)
+
+                    if (match) {
+
+                        let itens = match[1].split(",")
+
+                        let resultado = ""
+
+                        itens.forEach(i => {
+
+                            i = i.trim().replace(/["']/g, "")
+
+                            if (variaveis[i] !== undefined)
+                                resultado += variaveis[i] + " "
+                            else
+                                resultado += i + " "
+
+                        })
+
+                        terminal.innerHTML += resultado + "\n"
+                    }
+
+                    linhaAtual++
+                    continue
+                }
+
+                // =====================
+                // LEIA
+                // =====================
+                if (linha.startsWith("leia")) {
+
+                    let varMatch = linha.match(/\((.*?)\)/)
+
+                    if (varMatch) {
+
+                        variavelLeitura = varMatch[1]
+                        esperandoEntrada = true
+                        linhaAtual++
+
+                        document.getElementById("terminalInput").focus()
+                        return
                     }
                 }
-                const feedback = document.getElementById("feedback");
-                if (correta) {
-                    feedback.innerText = "✅ Correto!";
-                    feedback.className = "correct";
-                    document.getElementById("proximaBtn").style.display = "inline-block";
-                    document.getElementById("enviarBtn").style.display = "none";
-                } else {
-                    feedback.innerText = "❌ Incorreto! Tente novamente.";
-                    feedback.className = "wrong";
+
+                // =====================
+                // SE
+                // =====================
+                if (linha.startsWith("se")) {
+
+                    let condicao = linha.match(/\((.*?)\)/)[1]
+
+                    for (let v in variaveis) {
+                        condicao = condicao.replace(new RegExp("\\b" + v + "\\b", "g"), variaveis[v])
+                    }
+
+                    let resultado = false
+
+                    try {
+                        resultado = eval(condicao)
+                    } catch (e) { }
+
+                    linhaAtual++
+
+                    if (!resultado) {
+
+                        while (linhaAtual < linhasCodigo.length) {
+
+                            let l = linhasCodigo[linhaAtual].trim()
+
+                            if (l.startsWith("senao")) {
+                                linhaAtual++
+                                break
+                            }
+
+                            if (l === "}") break
+
+                            linhaAtual++
+                        }
+                    }
+
+                    continue
                 }
+
+                // =====================
+                // SENAO
+                // =====================
+                if (linha.startsWith("senao")) {
+
+                    while (linhaAtual < linhasCodigo.length) {
+
+                        let l = linhasCodigo[linhaAtual].trim()
+
+                        if (l === "}") break
+
+                        linhaAtual++
+                    }
+
+                    linhaAtual++
+                    continue
+                }
+
+                // =====================
+                // PARA
+                // =====================
+                // =====================
+                // PARA
+                // =====================
+                if (linha.startsWith("para")) {
+
+                    let match = linha.match(/\((.*?)\)/)
+
+                    if (match) {
+
+                        let partes = match[1].split(";")
+
+                        let inicio = partes[0].split("=")
+                        let variavel = inicio[0].trim()
+                        let valorInicial = parseInt(inicio[1])
+
+                        variaveis[variavel] = valorInicial
+
+                        let condicao = partes[1]
+                        let incremento = partes[2]
+
+                        // pegar bloco do loop
+                        let bloco = []
+                        linhaAtual++
+
+                        while (linhaAtual < linhasCodigo.length && !linhasCodigo[linhaAtual].includes("}")) {
+                            bloco.push(linhasCodigo[linhaAtual].trim())
+                            linhaAtual++
+                        }
+
+                        // executar loop
+                        while (true) {
+
+                            let cond = condicao
+
+                            for (let v in variaveis) {
+                                cond = cond.replace(new RegExp("\\b" + v + "\\b", "g"), variaveis[v])
+                            }
+
+                            if (!eval(cond)) break
+
+                            bloco.forEach(l => {
+
+                                if (l.startsWith("escreva")) {
+
+                                    let match = l.match(/\((.*?)\)/)
+
+                                    if (match) {
+
+                                        let item = match[1].trim()
+
+                                        if (variaveis[item] !== undefined)
+                                            terminal.innerHTML += variaveis[item] + "\n"
+                                        else
+                                            terminal.innerHTML += item.replace(/["']/g, "") + "\n"
+
+                                    }
+
+                                }
+
+                            })
+
+                            // incremento
+                            if (incremento.includes("++"))
+                                variaveis[variavel]++
+                            else if (incremento.includes("--"))
+                                variaveis[variavel]--
+                        }
+
+                    }
+
+                    linhaAtual++
+                    continue
+                }
+
+                // =====================
+                // ENQUANTO
+                // =====================
+                if (linha.startsWith("enquanto")) {
+
+                    let condicao = linha.match(/\((.*?)\)/)[1]
+
+                    let bloco = []
+                    linhaAtual++
+
+                    while (linhaAtual < linhasCodigo.length && !linhasCodigo[linhaAtual].includes("}")) {
+                        bloco.push(linhasCodigo[linhaAtual])
+                        linhaAtual++
+                    }
+
+                    while (true) {
+
+                        let cond = condicao
+
+                        for (let v in variaveis) {
+                            cond = cond.replace(new RegExp("\\b" + v + "\\b", "g"), variaveis[v])
+                        }
+
+                        if (!eval(cond)) break
+
+                        bloco.forEach(l => {
+                            linhasCodigo.splice(linhaAtual + 1, 0, l)
+                        })
+                    }
+
+                    linhaAtual++
+                    continue
+                }
+
+                linhaAtual++
             }
 
-            function proximaPergunta() {
-                carregarPergunta();
-            }
+        }
 
-            // Menu mobile
-            function toggleMenu() {
-                document.getElementById("sidebar").classList.toggle("active");
-            }
-        </script>
+        function enviarEntrada() {
+
+            if (!esperandoEntrada) return
+
+            let input = document.getElementById("terminalInput")
+            let valor = input.value
+
+            let terminal = document.getElementById("terminal")
+
+            terminal.innerHTML += "> " + valor + "\n"
+
+            variaveis[variavelLeitura] = valor
+
+            input.value = ""
+            esperandoEntrada = false
+
+            executarLinha()
+
+        }
+
+        function finalizarProva() {
+
+            let confirmar = confirm("Deseja realmente finalizar a prova?")
+            if (!confirmar) return
+
+            let nota = Math.round((acertos / perguntasSelecionadas.length) * 10)
+
+            window.location.href =
+                "resultado.html?nota=" + nota +
+                "&acertos=" + acertos +
+                "&respondidas=" + perguntasSelecionadas.length +
+                "&tempo=" + tempo
+
+        }
+
+        require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor@0.44.0/min/vs' } })
+
+        require(['vs/editor/editor.main'], function () {
+
+            editor = monaco.editor.create(document.getElementById('editor'), {
+
+                value: codigoBase,
+                language: 'javascript',
+                theme: 'vs-dark',
+                fontSize: 16,
+                minimap: { enabled: false }
+
+            })
+
+            iniciarDesafio()
+
+        })
+
+        window.addEventListener("resize", () => {
+            editor.layout()
+        })
+    </script>
 
 </body>
 
